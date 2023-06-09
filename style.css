@@ -1,0 +1,220 @@
+:root {
+    /* color */
+    --primary-color: #BFC8CF;
+    --secondary-color: #778691;
+    --heading-color: #F7A453;
+    --text-color: #777;
+    --box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --background-color: rgb(245, 240, 245, .9);
+    --scrollbar-thumb-color: #bbb;
+
+    /* font */
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --heading-font-size: 36px;
+    --font-size: 16px;
+
+    /* other */
+    --border-radius: 10px;
+}
+
+body {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    font-family: var(--font-family);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body::after {
+    content: "";
+    background-image: url("images/extra_2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 20vh;
+    right: 0;
+    height: 70vh;
+    width: 160px;
+    z-index: 1;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: 60vh;
+    width: 300px;
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    background-color: var(--background-color);
+    z-index: 10;
+}
+
+.container::after {
+    content: "";
+    background-image: url("images/extra_1.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: -30px;
+    right: -80px;
+    height: 250px;
+    width: 160px;
+}
+
+.container::before {
+    content: "";
+    background-image: url("images/extra_3.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    height: 70%;
+    width: 120px;
+}
+
+.heading {
+    position: absolute;
+    top: 50px;
+    color: var(--heading-color);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: var(--heading-font-size);
+    font-weight: 100;
+}
+
+.input-field {
+    position: absolute;
+    top: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--border-radius);
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.heading-2 {
+    position: absolute;
+    top: 200px;
+    color: var(--text-color);
+    font-size: var(--heading-font-size - 10);
+    font-weight: 100;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.task-list {
+    position: absolute;
+    top: 250px;
+    list-style-type: none;
+    width: 65%;
+    max-height: 320px;
+    margin: 10px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    scrollbar-color: transparent #ccc;
+    /* set the color of the scrollbar thumb and track */
+    scrollbar-width: thin;
+    /* set the width of the scrollbar */  
+}
+
+.task-list::-webkit-scrollbar {
+    width: 8px;
+    /* set the width of the scrollbar on webkit browsers */
+  }
+
+  .task-list::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb-color);
+    /* set the color of the scrollbar thumb on webkit browsers */
+  }
+
+  .task-list::-webkit-scrollbar-track {
+    background: transparent;
+    /* set the color of the scrollbar track on webkit browsers */
+  }  
+
+.input-field input[type="text"]{
+    width: 70%;
+    height: 30px;
+    padding: 10px;
+    font-size: var(--font-size);
+    border: none;
+    background: none;
+}
+
+.input-field button[type="submit"]{
+    width: 15%;
+    font-size: var(--font-size);
+    margin-left: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    opacity: .6;
+}
+
+.input-field button[type="submit"]:hover {
+    opacity: .8;
+}
+
+.task-list li {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 10px 0;
+    margin-top: 10px;
+    border-radius: var(--border-radius);
+    background-color: rgba(255, 255, 255, .6);
+}
+
+.task-list li:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+  
+.task-list li input[type="checkbox"]{
+    margin-left: 25px;
+    cursor: pointer;
+    accent-color:var(--heading-color);
+}
+  
+.task-list li span {
+    padding-left: 10px;
+    font-size: var(--font-size);
+    color: var(--text-color);
+}
+
+.task-list li button {
+    font-size: var(--font-size);
+    width: 40px;
+    padding: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    opacity: .6;
+}
+
+.task-list li button:hover {
+    opacity: .8;
+}
+
+.task-list li .edit-input[type="text"] {
+    width: 70%;
+    margin: 0;
+    padding-left: 10px;
+    font-size: var(--font-size);
+    color: var(--text-color);
+}
+  
+.task-list li .task-info {
+    display: flex;
+    flex-direction: row;
+}
